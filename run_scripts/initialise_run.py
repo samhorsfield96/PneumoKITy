@@ -403,8 +403,7 @@ class AnalysisMixed(Analysis):
 
         # option 2 input separate fastq paths -f option + existence check
         elif inputs.fastqs:
-            if os.path.isfile(inputs.fastqs[0]) and \
-                    os.path.isfile(inputs.fastqs[1]):
+            if os.path.isfile(inputs.fastqs[0]):
                 # set input dir to input dir of first fastq
                 self.input_dir = os.path.dirname(inputs.fastqs[0])
                 self.fastq_files = inputs.fastqs
@@ -514,8 +513,7 @@ class AnalysisMixed(Analysis):
     def write_report(self, mixstring):
         # Class function to write report output from completed mixed object
 
-        inputfiles = f"Fastq1:\t{self.fastq_files[0]}\nFastq2:\t" \
-                     f"{self.fastq_files[1]}"
+        inputfiles = f"Fastq1:\t{self.fastq_files[0]}\nFastq2:\tNA"
 
         with open(os.path.join(self.output_dir,
                                f"{self.sampleid}_serotyping_results.txt"),
