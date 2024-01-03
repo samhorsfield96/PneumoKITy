@@ -120,8 +120,7 @@ def run_mash_screen(analysis, ref_sketch, run_type="stage1"):
 
     if analysis.fastq_files:
         argument = [analysis.mash, "screen", ref_sketch, "-p",
-                    analysis.threads, analysis.fastq_files[0],
-                    analysis.fastq_files[1]]
+                    analysis.threads, analysis.fastq_files[0]]
 
     else:
         argument = [analysis.mash, "screen",  ref_sketch, "-p",
