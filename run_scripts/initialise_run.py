@@ -127,8 +127,8 @@ def parse_args(workflow_version):
                                       'one sample)'
                                       '[REQUIRED - OPTION 1]')
 
-    mix_input_group.add_argument('--fastqs', '-f', nargs=2, help=' paths to fastq '
-                                                                 'files: read1 read2 '
+    mix_input_group.add_argument('--fastqs', '-f', nargs=1, help=' paths to fastq '
+                                                                 'files: read1 '
                                                                  '[REQUIRED - OPTION 2]')
 
     # auto default to 4 for mixed input
@@ -205,14 +205,6 @@ class Analysis:
 
             else:
                 sys.stderr.write(" ERROR: Check input directory path\n")
-                sys.exit(1)
-
-            # check for correct number of fastq
-            if len(self.fastq_files) != 2:
-                sys.stderr.write("Unexpected number (" +
-                                 str(len(self.fastq_files))
-                                 + ") of fastq files. Please use option -f to"
-                                   " specify the paths to the fastq files\n")
                 sys.exit(1)
 
         # option 2 input separate fastq paths -f option + existence check
